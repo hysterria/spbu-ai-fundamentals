@@ -1,11 +1,11 @@
 import pandas as pd
 import numpy as np
 from sklearn.compose import ColumnTransformer
+from sklearn.linear_model import LinearRegression
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import OneHotEncoder, StandardScaler, FunctionTransformer
-from sklearn.ensemble import GradientBoostingRegressor
-from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 
 train = pd.read_csv("train_hw.csv")
@@ -47,20 +47,12 @@ preprocessor = ColumnTransformer([
     ('cat', cat_pipeline, cat_cols)
 ])
 
+
 X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
 
 model = Pipeline([
     ('preprocessor', preprocessor),
-    ('regressor', GradientBoostingRegressor(
-        n_estimators=2000,
-        learning_rate=0.05,
-        max_depth=4,
-        max_features='sqrt',
-        min_samples_leaf=15,
-        min_samples_split=10,
-        loss='huber',
-        random_state=42
-    ))
+    ('regressor', LinearRegression())
 ])
 
 model.fit(X_train, y_train)
