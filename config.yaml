@@ -1,8 +1,8 @@
 house_pricing:
-  train_dataset: D:\data\spbu_ai_fundamentals\house_prices\train.csv
-  test_dataset: D:\data\spbu_ai_fundamentals\house_prices\test.csv
+  train_dataset: C:\Programming\AI\spbu-ai-fundamentals\data\house_prices\train.csv
+  test_dataset: C:\Programming\AI\spbu-ai-fundamentals\data\house_prices\test.csv
 classification:
-  wdbc: D:\data\spbu_ai_fundamentals/classification/data.csv
+  wdbc: C:\Programming\AI\spbu-ai-fundamentals\data\wdbc\data.csv
   mushrooms: D:\data\spbu_ai_fundamentals/classification/mushrooms.csv
 clustering:
   flowcytometry: D:\data\spbu_ai_fundamentals/flow_cytometry
